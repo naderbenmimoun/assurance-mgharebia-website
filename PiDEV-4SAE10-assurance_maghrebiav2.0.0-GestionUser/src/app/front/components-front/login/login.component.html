@@ -1,0 +1,39 @@
+<app-navbar-front></app-navbar-front>
+
+<div class="login-container">
+  <h2>Connexion</h2>
+  
+  <!-- Formulaire de login initial -->
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <div class="form-group">
+      <label for="username">Nom d'utilisateur</label>
+      <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required [disabled]="loading">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Mot de passe</label>
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required [disabled]="loading">
+    </div>
+
+    <div class="form-group" *ngIf="show2FAInput">
+      <label for="twoFactorCode">Code d'authentification à deux facteurs</label>
+      <input type="text" class="form-control" id="twoFactorCode" name="twoFactorCode" [(ngModel)]="twoFactorCode" 
+             placeholder="Entrez le code à 6 chiffres de votre application d'authentification" required>
+      <small class="form-text text-muted">Veuillez entrer le code généré par votre application d'authentification (Google Authenticator, Authy, etc.)</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="loading">
+      {{ show2FAInput ? 'Vérifier' : 'Se connecter' }}
+    </button>
+
+    <div class="alert alert-danger mt-3" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+  </form>
+
+  <div class="links">
+    <a href="/ForgotPasswordComponent">Mot de passe oublié ?</a>
+  </div>
+</div>
+
+<app-footer-front></app-footer-front>

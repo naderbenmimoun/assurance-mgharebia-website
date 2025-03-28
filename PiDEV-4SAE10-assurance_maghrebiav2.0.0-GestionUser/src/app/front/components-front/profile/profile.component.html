@@ -1,0 +1,61 @@
+<app-navbar-front></app-navbar-front>
+
+<div class="profile-container">
+  <h2>Profil Utilisateur</h2>
+
+  <div class="profile-info">
+    <div class="info-group">
+      <label>Nom d'utilisateur:</label>
+      <span>{{ userProfile.username }}</span>
+    </div>
+
+    <div class="info-group">
+      <label>Email:</label>
+      <span>{{ userProfile.email }}</span>
+    </div>
+
+    <div class="info-group">
+      <label>Téléphone:</label>
+      <span>{{ userProfile.phoneNumber }}</span>
+    </div>
+  </div>
+
+  <div class="two-factor-section">
+    <h3>Authentification à deux facteurs</h3>
+    
+    <div *ngIf="!twoFactorEnabled">
+      <p>Protégez votre compte en activant l'authentification à deux facteurs.</p>
+      <div class="button-group">
+        <button (click)="enable2FA()" class="btn-primary">Activer l'authentification à deux facteurs</button>
+      </div>
+    </div>
+
+    <div *ngIf="twoFactorEnabled && qrCodeUrl" class="setup-2fa">
+      <h4>Configuration de l'authentification à deux facteurs</h4>
+      <p>1. Téléchargez une application d'authentification (comme Google Authenticator, Authy, etc.)</p>
+      <p>2. Scannez le QR code ci-dessous avec votre application</p>
+      <div class="qr-code-container">
+        <img [src]="qrCodeUrl" alt="QR Code pour 2FA" class="qr-code">
+      </div>
+      <p>3. Entrez le code généré par votre application pour vérifier la configuration</p>
+      <div class="verification-form">
+        <input type="text" [(ngModel)]="verificationCode" placeholder="Code de vérification" maxlength="6" pattern="[0-9]*">
+        <button (click)="verify2FA()" class="btn-primary">Vérifier</button>
+      </div>
+    </div>
+
+    <div *ngIf="twoFactorEnabled && !qrCodeUrl">
+      <p>Authentification à deux facteurs activée</p>
+      <button (click)="disable2FA()" class="btn-danger">Désactiver</button>
+    </div>
+  </div>
+
+  <div class="messages">
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+  </div>
+
+  <button (click)="logout()" class="btn-logout">Se déconnecter</button>
+</div>
+
+<app-footer-front></app-footer-front>

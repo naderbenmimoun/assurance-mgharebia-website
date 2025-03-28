@@ -1,0 +1,60 @@
+<app-navbar-front></app-navbar-front>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="text-center">Authentification à deux facteurs</h3>
+        </div>
+        <div class="card-body">
+          <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i>
+            Veuillez entrer le code à 6 chiffres généré par votre application d'authentification (Google Authenticator, Authy, etc.)
+          </div>
+
+          <form (ngSubmit)="verifyCode()">
+            <div class="form-group">
+              <label for="twoFactorCode">Code de vérification</label>
+              <input
+                type="text"
+                class="form-control form-control-lg text-center" 
+                id="twoFactorCode"
+                name="twoFactorCode" 
+                [(ngModel)]="twoFactorCode"
+                placeholder="000000"
+                maxlength="6"
+                pattern="[0-9]*"
+                inputmode="numeric"
+                required>
+            </div>
+
+            <div class="alert alert-danger mt-3" *ngIf="errorMessage">
+              {{ errorMessage }}
+            </div>
+
+            <div class="text-center mt-4">
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg" 
+                [disabled]="loading || !twoFactorCode || twoFactorCode.length !== 6">
+                <span *ngIf="!loading">Vérifier le code</span>
+                <span *ngIf="loading">
+                  <i class="fas fa-spinner fa-spin"></i> Vérification en cours...
+                </span>
+              </button>
+            </div>
+          </form>
+
+          <div class="mt-4 text-center">
+            <a routerLink="/login" class="text-muted">
+              <i class="fas fa-arrow-left"></i> Retour à la connexion
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer-front></app-footer-front> 

@@ -1,0 +1,240 @@
+/* Conteneur principal avec effet de verre */
+.register-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(255, 140, 0, 0.2);
+  text-align: center;
+  backdrop-filter: blur(8px);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 165, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effet de survol avec animation */
+.register-container:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(255, 140, 0, 0.3);
+  border-color: rgba(255, 165, 0, 0.4);
+}
+
+/* Effet de brillance animé */
+.register-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 165, 0, 0.1),
+      rgba(255, 165, 0, 0.2),
+      transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 6s infinite;
+}
+
+@keyframes shine {
+  0% {
+      transform: translateX(-100%) rotate(45deg);
+  }
+  50% {
+      transform: translateX(100%) rotate(45deg);
+  }
+  100% {
+      transform: translateX(-100%) rotate(45deg);
+  }
+}
+
+/* Titre avec effet de dégradé */
+h2 {
+  margin-bottom: 25px;
+  font-size: 28px;
+  background: linear-gradient(45deg, #FF8C00, #FFA500, #FF4500);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+/* Effet de soulignement animé pour le titre */
+h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #FF8C00, #FFA500, #FF4500);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+h2:hover::after {
+  transform: scaleX(1);
+}
+
+/* Labels avec style moderne */
+label {
+  display: block;
+  text-align: left;
+  margin: 12px 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #FF8C00;
+  transition: color 0.3s ease;
+}
+
+/* Champs input avec effets */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid rgba(255, 140, 0, 0.3);
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+input:focus {
+  border-color: #FFA500;
+  box-shadow: 0 0 12px rgba(255, 165, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Style des boutons avec animation */
+button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(45deg, #FF8C00, #FFA500, #FF4500);
+  background-size: 200% 200%;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  animation: gradientMove 8s infinite;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@keyframes gradientMove {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+button:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 140, 0, 0.4);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Message d'erreur stylisé */
+.error {
+  color: #FF4500;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255, 69, 0, 0.1);
+  border-left: 4px solid #FF4500;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Animation d'apparition améliorée */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.95);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+  }
+}
+
+.register-container {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Effet de focus sur les éléments */
+*:focus {
+  outline: none;
+}
+
+/* Style pour les liens */
+a {
+  color: #FF8C00;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+a:hover {
+  color: #FF4500;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, #FF8C00, #FF4500);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Style pour les éléments désactivés */
+button:disabled {
+  background: linear-gradient(45deg, #FFB366, #FFA366);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Ajout d'un effet de pulsation sur focus */
+input:focus {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 165, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0); }
+}

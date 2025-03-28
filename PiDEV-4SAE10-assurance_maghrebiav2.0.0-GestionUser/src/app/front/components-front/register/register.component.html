@@ -1,0 +1,29 @@
+<app-navbar-front></app-navbar-front>
+
+<div class="register-container">
+    <h2>Inscription</h2>
+    <form (submit)="register()">
+      <label>Username:</label>
+      <input type="text" [(ngModel)]="username" name="username" required>
+
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="email" name="email" required>
+
+      <label>Numéro de téléphone:</label>
+      <input type="tel" [(ngModel)]="phoneNumber" name="phoneNumber" required pattern="[0-9]{8}">
+
+      <label>Mot de passe:</label>
+      <input type="password" [(ngModel)]="password" name="password" required>
+
+      <label>Choisissez un rôle:</label>
+      <select [(ngModel)]="role" name="role" required>
+        <option value="CLIENT_PHYSIQUE">Client Physique</option>
+        <option value="CLIENT_MORAL">Client Moral</option>
+      </select>
+
+      <button type="submit">S'inscrire</button>
+    </form>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+</div>
+
+<app-footer-front></app-footer-front>

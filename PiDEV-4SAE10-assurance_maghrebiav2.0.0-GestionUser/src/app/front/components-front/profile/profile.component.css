@@ -1,0 +1,163 @@
+.profile-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+  margin-bottom: 2rem;
+}
+
+.info-group {
+  margin-bottom: 1rem;
+}
+
+.info-group label {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.two-factor-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.setup-2fa {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.qr-code-container {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.qr-code {
+  max-width: 200px;
+  height: auto;
+}
+
+.verification-form {
+  margin-top: 1.5rem;
+}
+
+.verification-form input {
+  padding: 0.5rem;
+  margin-right: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 150px;
+}
+
+.button-group {
+  margin-top: 1rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-logout {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+
+.messages {
+  margin: 1rem 0;
+}
+
+.error {
+  color: #dc3545;
+  padding: 0.5rem;
+  background-color: #f8d7da;
+  border-radius: 4px;
+}
+
+.success {
+  color: #28a745;
+  padding: 0.5rem;
+  background-color: #d4edda;
+  border-radius: 4px;
+}
+
+h2, h3, h4 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #666;
+  line-height: 1.5;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #ff8c00; /* Orange spinner */
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+  margin-top: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #ff8c00; /* Orange background for navbar */
+}
+
+.navbar .nav-link {
+  color: #fff; /* White text in navbar */
+}
+
+.navbar .navbar-brand {
+  color: #fff; /* White text for brand */
+}
+
+.navbar .btn-light {
+  background-color: #fff; /* White button background */
+  border: 1px solid #ff8c00; /* Orange border */
+  color: #ff8c00; /* Orange text */
+}
+
+.navbar .btn-light:hover {
+  background-color: #ff8c00; /* Orange background on hover */
+  color: #fff; /* White text on hover */
+}
